@@ -1,13 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {FormsModule} from "@angular/forms";
+import {LoginComponent} from "./login/login/login.component";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
+  standalone: true,
+  imports: [
+    FormsModule,
+    LoginComponent
+  ],
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'kinolove';
+  public title = 'kinolove';
 }
+
+

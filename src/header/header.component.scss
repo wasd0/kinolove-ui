@@ -25,6 +25,12 @@ body {
   color: white;
 }
 
+
+.logo-img:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
 .dropdown {
   padding: 0 30px;
   display: inline-block;

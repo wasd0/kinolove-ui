@@ -1,14 +1,15 @@
 import {Component} from '@angular/core';
 import {FormField} from "./FormField";
 import {FormsModule} from "@angular/forms";
-import {NgIf} from "@angular/common";
+import {NgIf, NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-form',
   standalone: true,
   imports: [
     FormsModule,
-    NgIf
+    NgIf,
+    NgOptimizedImage
   ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss'

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {LoginComponent} from "./form/login.component";
-import {HeaderComponent} from "./header/header.component";
+import {LoginComponent} from "../form/login.component";
+import {HeaderComponent} from "../header/header.component";
 
 @Component({
   selector: 'app-root',

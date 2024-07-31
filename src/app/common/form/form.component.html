@@ -1,0 +1,21 @@
+<h2 class="title">{{ title }}</h2>
+<h3>{{ description }}</h3>
+
+<form class="form" (ngSubmit)="onSubmit()">
+
+  @for (field of fields; track field) {
+    <div *ngIf="fieldModel.invalid && (fieldModel.dirty || fieldModel.touched)" class="alert">
+      <div *ngIf="fieldModel.errors?.['required']">*Field is required.</div>
+      <div *ngIf="fieldModel.errors?.['minlength']">
+        Field must be at least {{ field.minLength }} characters long.
+      </div>
+    </div>
+    <input
+      [class]="field.isValid != undefined && field.isValid() ? 'input-field-valid' : 'input-field-invalid'"
+      name="{{field.name}}" type="{{field.type}}" title="{{field.name}}" #fieldModel="ngModel"
+      placeholder="{{field.placeholder}}" [(ngModel)]="field.value" [required]="field.isRequired"
+      [minlength]="field.minLength != undefined ? field.minLength : 0"/>
+  }
+
+  <button class="form-submit" [disabled]="isSubmitDisabled()">Submit</button>
+</form>

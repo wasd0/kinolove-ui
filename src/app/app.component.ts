@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {LoginComponent} from "./login/login.component";
+import {LoginComponent} from "./common/form/login.component";
 
 @Component({
   selector: 'app-root',

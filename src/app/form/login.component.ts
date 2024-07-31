@@ -8,14 +8,21 @@ import {InputType} from "./InputType";
 @Component({
   selector: 'app-login',
   standalone: true,
-  templateUrl: 'form.component.html',
-  styleUrl: 'form.component.scss',
+  templateUrl: './form.component.html',
+  styleUrl: './form.component.scss',
   imports: [
     FormsModule,
     NgIf
   ]
 })
 export class LoginComponent extends FormComponent {
+  private pwdValid = () => {
+    return this.passwordField.value !== undefined && this.passwordField.value.length >= 8 || this.passwordField.value === undefined
+  }
+
+  private usrValid = () => {
+    return this.usernameField.value !== undefined && this.usernameField.value.length >= 5 || this.usernameField.value === undefined
+  }
 
   private readonly usernameField: FormField = {
     type: InputType.TEXT,
@@ -23,7 +30,10 @@ export class LoginComponent extends FormComponent {
     placeholder: 'Enter your username',
     isRequired: true,
     minLength: 5,
+    isValid: this.usrValid
   }
+
+
 
   private readonly passwordField: FormField = {
     type: InputType.PASSWORD,
@@ -31,23 +41,12 @@ export class LoginComponent extends FormComponent {
     placeholder: 'Enter your password',
     isRequired: true,
     minLength: 8,
+    isValid: this.pwdValid
   }
 
   override fields: FormField[] = [this.usernameField, this.passwordField]
   override title: string = "Login";
   override description: string = "Enter your username and password";
-
-
-  constructor() {
-    super();
-    this.usernameField.isValid = () => {
-      return this.usernameField.value !== undefined && this.usernameField.value.length >= 5 || this.usernameField.value === undefined
-    }
-
-    this.passwordField.isValid = () => {
-      return this.passwordField.value !== undefined && this.passwordField.value.length >= 8 || this.passwordField.value === undefined
-    }
-  }
 
   override onSubmit() {
     alert(this.usernameField.value+":"+this.passwordField.value)

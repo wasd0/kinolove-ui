@@ -6,7 +6,7 @@ export class FormField {
   public name: string;
   public value?: string;
   public type: InputType;
-  public isValid?: FormValidator | undefined = () => true;
+  public isValid?: FormValidator;
   public placeholder?: string;
   public isRequired: boolean = false;
   public minLength?: number = 0;

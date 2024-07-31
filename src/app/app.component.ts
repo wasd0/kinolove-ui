@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {LoginComponent} from "../form/login.component";
-import {HeaderComponent} from "../header/header.component";
+import {HeaderComponent} from "./components/header/header.component";
+import {RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ import {HeaderComponent} from "../header/header.component";
   imports: [
     FormsModule,
     LoginComponent,
-    HeaderComponent
+    HeaderComponent,
+    RouterOutlet
   ],
   styleUrl: './app.component.scss'
 })

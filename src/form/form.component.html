@@ -14,7 +14,7 @@
       [class]="field.isValid != undefined && field.isValid() ? 'input-field-valid' : 'input-field-invalid'"
       name="{{field.name}}" type="{{field.type}}" title="{{field.name}}" #fieldModel="ngModel"
       placeholder="{{field.placeholder}}" [(ngModel)]="field.value" [required]="field.isRequired"
-      [minlength]="field.minLength != undefined ? field.minLength : 0"/>
+      [minlength]="field.minLength"/>
   }
 
   <button type="submit"  class="form-submit" [disabled]="isSubmitDisabled()">Submit</button>

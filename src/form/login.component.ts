@@ -17,11 +17,22 @@ import {InputType} from "./InputType";
 })
 export class LoginComponent extends FormComponent {
   private pwdValid = () => {
-    return this.passwordField.value !== undefined && this.passwordField.value.length >= 8 || this.passwordField.value === undefined
+    if (!this.passwordField.isRequired) {
+      return this.passwordField.value === undefined || this.passwordField.value.length == 0 || this.passwordField.value.length >= 5
+    }
+
+    return this.passwordField.value !== undefined &&
+      this.passwordField.value.length >= this.passwordField.minLength
+
   }
 
   private usrValid = () => {
-    return this.usernameField.value !== undefined && this.usernameField.value.length >= 5 || this.usernameField.value === undefined
+    if (!this.usernameField.isRequired) {
+      return this.usernameField.value === undefined || this.usernameField.value.length == 0 || this.usernameField.value.length >= 5
+    }
+
+    return this.usernameField.value !== undefined
+      && this.usernameField.value.length >= this.usernameField.minLength
   }
 
   private readonly usernameField: FormField = {

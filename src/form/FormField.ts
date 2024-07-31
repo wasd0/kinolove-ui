@@ -9,7 +9,7 @@ export class FormField {
   public isValid?: FormValidator;
   public placeholder?: string;
   public isRequired: boolean = false;
-  public minLength?: number = 0;
+  public minLength: number = 0;
 
   constructor(name: string, type: InputType, minLength: number) {
     this.name = name;

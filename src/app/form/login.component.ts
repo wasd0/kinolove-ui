@@ -50,5 +50,5 @@ export class LoginComponent extends FormComponent {
   }
 
   override onSubmit() {
-    alert(this.passwordField.value)
+    alert(this.usernameField.value+":"+this.passwordField.value)
   }}

@@ -1,0 +1,12 @@
+<div *ngIf="fieldModel.invalid && (fieldModel.dirty || fieldModel.touched)" class="alert">
+  <div *ngIf="fieldModel.errors?.['required']">*Field is required.</div>
+  <div *ngIf="fieldModel.errors?.['minlength']">
+    Field must be at least {{ field.minLength }} characters long.
+  </div>
+</div>
+<ng-content></ng-content>
+<input
+  [class]="field.isValid != undefined && field.isValid() ? 'input-field-valid' : 'input-field-invalid'"
+  name="{{field.name}}" type="{{field.type}}" title="{{field.name}}" #fieldModel="ngModel"
+  placeholder="{{field.placeholder}}" [(ngModel)]="field.value" [required]="field.isRequired"
+  [minlength]="field.minLength"/>

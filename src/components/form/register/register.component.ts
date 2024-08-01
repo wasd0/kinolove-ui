@@ -1,22 +1,16 @@
 import {Component} from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import {NgIf} from "@angular/common";
-import {FormComponent} from "./form.component";
-import {FormField} from "./FormField";
-import {InputType} from "./InputType";
-import {validatePasswordField, validateUsernameField} from "../../util/user/userValidator";
+import {FormField} from "../formField";
+import {InputType} from "../inputType";
+import {validatePasswordField, validateUsernameField} from "../../../util/form/fieldValidator";
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-register',
   standalone: true,
-  templateUrl: './form.component.html',
-  styleUrl: './form.component.scss',
-  imports: [
-    FormsModule,
-    NgIf
-  ]
+  imports: [],
+  templateUrl: './register.component.html',
+  styleUrl: './register.component.scss'
 })
-export class RegisterComponent extends FormComponent {
+export class RegisterComponent {
   private readonly usernameField: FormField = {
     type: InputType.TEXT,
     name: 'username',
@@ -43,11 +37,4 @@ export class RegisterComponent extends FormComponent {
     minLength: 8,
     isValid: () => this.passwordConfirmField.value === this.passwordField.value,
   }
-
-  override fields: FormField[] = [this.usernameField, this.passwordField, this.passwordConfirmField]
-  override title: string = "Sign up";
-  override description: string = "";
-
-  override onSubmit() {
-    alert(this.usernameField.value+":"+this.passwordField.value+":"+this.passwordConfirmField.value)
-  }}
+}

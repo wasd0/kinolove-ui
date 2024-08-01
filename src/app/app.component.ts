@@ -1,6 +1,5 @@
 import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {LoginComponent} from "../components/form/login.component";
 import {HeaderComponent} from "./components/header/header.component";
 import {RouterOutlet} from "@angular/router";
 
@@ -10,7 +9,6 @@ import {RouterOutlet} from "@angular/router";
   standalone: true,
   imports: [
     FormsModule,
-    LoginComponent,
     HeaderComponent,
     RouterOutlet
   ],

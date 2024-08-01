@@ -1,0 +1,7 @@
+<h2 class="title">Login</h2>
+<h4 class="description">Enter your username and password</h4>
+
+<app-form [submitHandler]="login" [isFormValid]="validateForm">
+  <form-input-field [field]="usernameField"></form-input-field>
+  <form-input-field [field]="passwordField"></form-input-field>
+</app-form>

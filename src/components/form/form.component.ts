@@ -1,7 +1,11 @@
-import {Component} from '@angular/core';
-import {FormField} from "./FormField";
+import {Component, Input} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {NgIf, NgOptimizedImage} from "@angular/common";
+import {FormButtonComponent} from "./form-button/form-button.component";
+import {ButtonType} from "./buttonType";
+
+type SubmitHandler = () => void
+type FormValidator = () => boolean
 
 @Component({
   selector: 'app-form',
@@ -9,26 +13,15 @@ import {NgIf, NgOptimizedImage} from "@angular/common";
   imports: [
     FormsModule,
     NgIf,
-    NgOptimizedImage
+    NgOptimizedImage,
+    FormButtonComponent
   ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss'
 })
 export class FormComponent {
-  public fields: FormField[] = []
-  public title: string = ""
-  public description: string = ""
+  protected readonly ButtonType = ButtonType;
 
-  public onSubmit() {
-  }
-
-  public isSubmitDisabled(): boolean {
-    for (let field of this.fields) {
-      if (field.isRequired && field.value === undefined || field.isValid !== undefined && !field.isValid()) {
-        return true
-      }
-    }
-
-    return false;
-  }
+  @Input() submitHandler: SubmitHandler = () => {}
+  @Input() isFormValid: FormValidator = () => true
 }

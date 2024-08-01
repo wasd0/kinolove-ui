@@ -1,4 +1,4 @@
-import {FormField} from "../../components/form/FormField";
+import {FormField} from "../../components/form/formField";
 
 export const validateUsernameField = (field: FormField) => {
   if (!field.isRequired) {

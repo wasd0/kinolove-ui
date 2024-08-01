@@ -4,7 +4,7 @@ import {NgIf} from "@angular/common";
 import {FormComponent} from "./form.component";
 import {FormField} from "./FormField";
 import {InputType} from "./InputType";
-import {validatePasswordField, validateUsernameField} from "../util/user/userValidator";
+import {validatePasswordField, validateUsernameField} from "../../util/user/userValidator";
 
 @Component({
   selector: 'app-login',

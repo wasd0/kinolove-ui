@@ -1,1 +1,13 @@
-<p>register works!</p>
+<h2 class="title">Sign up</h2>
+<h4 class="description">Enter new username and password</h4>
+
+<app-form [submitHandler]="signUp" [isFormValid]="validateForm">
+  <form-input-field [field]="usernameField"></form-input-field>
+  <form-input-field [field]="passwordField"></form-input-field>
+  <form-input-field [field]="passwordConfirmField">
+    <div
+      *ngIf="passwordConfirmField.value !== undefined && passwordConfirmField.value.length > 0  && !isConfirmValid()">
+      Password must be identical
+    </div>
+  </form-input-field>
+</app-form>

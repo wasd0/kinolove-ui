@@ -37,7 +37,7 @@ export class LoginComponent {
     isValid: () => validatePasswordField(this.passwordField)
   }
 
-   login = () => {
+  login = () => {
     alert("login")
   }
 

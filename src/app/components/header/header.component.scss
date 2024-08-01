@@ -46,7 +46,7 @@ body {
   padding: 15px 0;
   text-align: center;
   text-decoration: none;
-  font-size: 1vh;
+  font-size: 18px;
   transition: background-color 0.3s;
   width: 160px;
   border-radius: 4px;
@@ -108,23 +108,22 @@ body {
   .notification-btn, .profile-btn, .dropbtn, .dropdown {
     justify-content: center;
     flex-grow: 1;
-    display: flex;
     width: 100px;
     padding: 10px 2px;
   }
   .search {
     display: none;
   }
+
+  .dropdown-content {
+    width: 100px;
+    min-width: 100px;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .logo {
     display: none;
-  }
-
-  .dropdown-content {
-    width: 100px;
-    min-width: 100px;
   }
 }
 

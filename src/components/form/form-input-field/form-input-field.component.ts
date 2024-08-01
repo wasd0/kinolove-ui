@@ -3,8 +3,6 @@ import {FormField} from "../formField";
 import {FormsModule} from "@angular/forms";
 import {NgIf} from "@angular/common";
 
-type FormValidator = () => boolean
-
 @Component({
   selector: 'form-input-field',
   standalone: true,

@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ButtonType} from "../buttonType";
+import {ButtonType} from "../../models/buttonType";
 
 type Handler = () => void
 

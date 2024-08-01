@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {FormField} from "../formField";
+import {FormField} from "../../models/formField";
 import {FormsModule} from "@angular/forms";
 import {NgIf} from "@angular/common";
 

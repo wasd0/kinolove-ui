@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {NgIf, NgOptimizedImage} from "@angular/common";
 import {FormButtonComponent} from "./form-button/form-button.component";
-import {ButtonType} from "./buttonType";
+import {ButtonType} from "../models/buttonType";
 
 type SubmitHandler = () => void
 type FormValidator = () => boolean

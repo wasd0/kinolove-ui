@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {FormField} from "../formField";
-import {InputType} from "../inputType";
+import {FormField} from "../../models/formField";
+import {InputType} from "../../models/inputType";
 import {validatePasswordField, validateUsernameField} from "../../../util/form/fieldValidator";
 
 @Component({

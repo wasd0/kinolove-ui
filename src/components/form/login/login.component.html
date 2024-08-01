@@ -5,3 +5,8 @@
   <form-input-field [field]="usernameField"></form-input-field>
   <form-input-field [field]="passwordField"></form-input-field>
 </app-form>
+
+<div class="signUp-btn">
+  <form-button [type]="ButtonType.BUTTON" [title]="'Sign up'" [handler]="goToSignUp"
+               [disabled]="false"></form-button>
+</div>

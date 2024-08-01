@@ -15,4 +15,10 @@ export class FormButtonComponent {
   @Input() title: string = ""
   @Input() handler?: Handler = () => {}
   @Input() disabled?: boolean = false
+
+  handle = () => {
+    if (this.handler) {
+      this.handler();
+    }
+  }
 }

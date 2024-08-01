@@ -6,6 +6,11 @@ import {FormComponent} from "../form.component";
 import {FormInputFieldComponent} from "../form-input-field/form-input-field.component";
 import {validateForm} from "../../../util/form/formValidator";
 import {NgIf} from "@angular/common";
+import {FormButtonComponent} from "../form-button/form-button.component";
+import {ButtonType} from "../../models/buttonType";
+import {Title} from "@angular/platform-browser";
+import {RoutePath} from "../../models/routePath";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -14,12 +19,19 @@ import {NgIf} from "@angular/common";
   imports: [
     FormComponent,
     FormInputFieldComponent,
-    NgIf
+    NgIf,
+    FormButtonComponent
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
+  private router: Router;
+
+  constructor(router: Router) {
+    this.router = router
+  }
+
   usernameField: FormField = {
     type: InputType.TEXT,
     name: 'username',
@@ -58,4 +70,14 @@ export class RegisterComponent {
   validateForm = () => {
     return validateForm([this.usernameField, this.passwordField, this.passwordConfirmField])
   }
+  protected readonly ButtonType = ButtonType;
+  protected readonly Title = Title;
+
+  goToLogin = () => {
+    this.router.navigate([RoutePath.LOGIN]).then(r => {
+      if (!r) {
+        alert("Error")
+      }
+    })
+  };
 }

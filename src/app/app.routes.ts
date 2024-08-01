@@ -5,22 +5,23 @@ import {MovieCardComponent} from "../components/movie-card/movie-card.component"
 import {MainPageComponent} from "../components/main-page/main-page.component";
 import {LoginComponent} from "../components/form/login/login.component";
 import {RegisterComponent} from "../components/form/register/register.component";
+import {RoutePath} from "../components/models/routePath";
 
 export const routes: Routes = [
   {
-    path: 'login',
+    path: RoutePath.LOGIN,
     component: LoginComponent
   },
   {
-    path: 'movie',
+    path: RoutePath.MOVIE_LIST,
     component: MovieListComponent
   },
   {
-    path: 'movie/:id',
+    path: RoutePath.MOVIE_SINGLE,
     component: MovieCardComponent
   },
   {
-    path: 'register',
+    path: RoutePath.REGISTER,
     component: RegisterComponent
   },
   {

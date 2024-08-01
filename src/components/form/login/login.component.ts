@@ -5,19 +5,30 @@ import {validatePasswordField, validateUsernameField} from "../../../util/form/f
 import {FormComponent} from "../form.component";
 import {validateForm} from "../../../util/form/formValidator";
 import {FormInputFieldComponent} from "../form-input-field/form-input-field.component";
+import {ButtonType} from "../../models/buttonType";
+import {FormButtonComponent} from "../form-button/form-button.component";
+import {Router} from "@angular/router";
+import {RoutePath} from "../../models/routePath";
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     FormComponent,
-    FormInputFieldComponent
+    FormInputFieldComponent,
+    FormButtonComponent
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-   usernameField: FormField = {
+  private router: Router;
+
+  constructor(router: Router) {
+    this.router = router
+  }
+
+  usernameField: FormField = {
     type: InputType.TEXT,
     name: 'username',
     placeholder: 'Enter your username',
@@ -25,7 +36,6 @@ export class LoginComponent {
     minLength: 5,
     isValid: () => validateUsernameField(this.usernameField)
   }
-
 
 
   passwordField: FormField = {
@@ -44,4 +54,13 @@ export class LoginComponent {
   validateForm = () => {
     return validateForm([this.usernameField, this.passwordField])
   }
+  protected readonly ButtonType = ButtonType;
+
+  goToSignUp = () => {
+    this.router.navigate([RoutePath.REGISTER]).then(r => {
+      if (!r) {
+        alert("Error")
+      }
+    })
+  };
 }

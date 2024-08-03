@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {HeaderComponent} from "./components/header/header.component";
+import {HeaderComponent} from "../components/header/header.component";
 import {RouterOutlet} from "@angular/router";
 
 @Component({

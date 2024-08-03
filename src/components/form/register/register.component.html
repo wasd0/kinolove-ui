@@ -10,9 +10,10 @@
       Password must be identical
     </div>
   </form-input-field>
+  <div *ngIf="hasError" class="alert">{{errMsg}}</div>
 </app-form>
 
 <div class="login-btn">
-  <form-button [type]="ButtonType.BUTTON" [title]="'Login'" [handler]="goToLogin"
+  <form-button [type]="ButtonType.BUTTON" [title]="'Go to login'" [handler]="goToLogin"
                [disabled]="false"></form-button>
 </div>

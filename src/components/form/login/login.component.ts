@@ -9,6 +9,9 @@ import {ButtonType} from "../../models/buttonType";
 import {FormButtonComponent} from "../form-button/form-button.component";
 import {Router} from "@angular/router";
 import {RoutePath} from "../../models/routePath";
+import {LoginApi} from "../../../api/login/loginApi";
+import {getErrResponse} from "../../../util/errUtils";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-login',
@@ -16,17 +19,20 @@ import {RoutePath} from "../../models/routePath";
   imports: [
     FormComponent,
     FormInputFieldComponent,
-    FormButtonComponent
+    FormButtonComponent,
+    NgIf
   ],
+  providers: [LoginApi],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  private router: Router;
 
-  constructor(router: Router) {
-    this.router = router
+  constructor(private readonly router: Router, private readonly loginApi: LoginApi) {
   }
+
+  hasError: boolean = false;
+  errMsg: string = "";
 
   usernameField: FormField = {
     type: InputType.TEXT,
@@ -48,7 +54,21 @@ export class LoginComponent {
   }
 
   login = () => {
-    alert("login")
+    this.loginApi.login({
+      username: this.usernameField.value!,
+      password: this.passwordField.value!
+    }).subscribe({
+      error: err => {
+        this.hasError = true
+        this.errMsg = getErrResponse(err).message
+      }, next: response => {
+        this.router.navigate([RoutePath.MOVIE_LIST]).then(r => {
+          if (!r) {
+            alert('Error')
+          }
+        })
+      }
+    })
   }
 
   validateForm = () => {
@@ -59,7 +79,6 @@ export class LoginComponent {
   goToSignUp = () => {
     this.router.navigate([RoutePath.REGISTER]).then(r => {
       if (!r) {
-        alert("Error")
       }
     })
   };

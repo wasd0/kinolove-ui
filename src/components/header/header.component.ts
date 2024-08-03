@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {NgClass, NgOptimizedImage} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {routes} from "../../app.routes";
+import {routes} from "../../app/app.routes";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({

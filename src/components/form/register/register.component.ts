@@ -11,11 +11,14 @@ import {ButtonType} from "../../models/buttonType";
 import {Title} from "@angular/platform-browser";
 import {RoutePath} from "../../models/routePath";
 import {Router} from "@angular/router";
+import {getErrResponse} from "../../../util/errUtils";
+import {LoginApi} from "../../../api/login/loginApi";
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
+  providers: [LoginApi],
   imports: [
     FormComponent,
     FormInputFieldComponent,
@@ -26,9 +29,12 @@ import {Router} from "@angular/router";
   styleUrl: './register.component.scss'
 })
 export class RegisterComponent {
+  hasError: boolean = false;
+  errMsg: string = "";
+
   private router: Router;
 
-  constructor(router: Router) {
+  constructor(router: Router, private readonly loginApi: LoginApi) {
     this.router = router
   }
 
@@ -63,15 +69,31 @@ export class RegisterComponent {
     isValid: this.isConfirmValid,
   }
 
-  signUp = () => {
-    alert("sign up")
-  }
-
   validateForm = () => {
     return validateForm([this.usernameField, this.passwordField, this.passwordConfirmField])
   }
+
   protected readonly ButtonType = ButtonType;
   protected readonly Title = Title;
+
+  signUp = () => {
+    this.loginApi.register({
+      username: this.usernameField.value!,
+      password: this.passwordField.value!
+    }).subscribe({
+      error: err => {
+        this.hasError = true
+        this.errMsg = getErrResponse(err).message
+      }, next: response => {
+        this.router.navigate([RoutePath.MOVIE_LIST]).then(r => {
+          if (!r) {
+            alert('Error')
+          }
+        })
+      }
+    })
+
+  }
 
   goToLogin = () => {
     this.router.navigate([RoutePath.LOGIN]).then(r => {

@@ -4,9 +4,10 @@
 <app-form [submitHandler]="login" [isFormValid]="validateForm">
   <form-input-field [field]="usernameField"></form-input-field>
   <form-input-field [field]="passwordField"></form-input-field>
+  <div *ngIf="hasError"  class="alert">{{errMsg}}</div>
 </app-form>
 
 <div class="signUp-btn">
-  <form-button [type]="ButtonType.BUTTON" [title]="'Sign up'" [handler]="goToSignUp"
+  <form-button [type]="ButtonType.BUTTON" [title]="'New here?'" [handler]="goToSignUp"
                [disabled]="false"></form-button>
 </div>

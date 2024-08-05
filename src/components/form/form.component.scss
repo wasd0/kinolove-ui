@@ -17,3 +17,9 @@
   text-align: center;
   width: auto;
 }
+
+@media screen and (max-width: 400px) {
+  .form {
+    margin: 20px 5px;
+  }
+}

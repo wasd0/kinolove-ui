@@ -19,4 +19,8 @@ export class UserApi {
     const url = environment.serverUrl + `/api/v1/users/${username}`;
     return this.http.get<Response<UserSingleResponse>>(url);
   }
+
+  getCurrentUsername() {
+    return localStorage.getItem('user')!;
+  }
 }

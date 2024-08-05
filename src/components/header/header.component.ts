@@ -4,10 +4,12 @@ import {FormsModule} from "@angular/forms";
 import {routes} from "../../app/app.routes";
 import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 import {RoutePath} from "../models/routePath";
+import {UserApi} from "../../api/userApi";
 
 @Component({
   selector: 'app-header',
   standalone: true,
+  providers: [UserApi],
   imports: [
     NgOptimizedImage,
     FormsModule,
@@ -20,7 +22,7 @@ import {RoutePath} from "../models/routePath";
 })
 export class HeaderComponent {
 
-  constructor(private router: Router) {
+  constructor(private readonly userApi: UserApi, private router: Router) {
   }
 
   public search: string = ""
@@ -30,7 +32,6 @@ export class HeaderComponent {
   protected readonly RoutePath = RoutePath;
 
   goProfile() {
-    const currUsr = localStorage.getItem('user')!;
-    this.router.navigate([`user/${currUsr}`])
+    this.router.navigate([`user/${this.userApi.getCurrentUsername()}`])
   }
 }

@@ -1,1 +1,10 @@
-<p>movie-list works!</p>
+<div class="container">
+  <h1>Movies</h1>
+  <div class="movie-grid">
+    @for (movie of movies; track movie.id) {
+      <app-movie-list-card [title]="movie.title"
+                           [id]="movie.id"></app-movie-list-card>
+    }
+
+  </div>
+</div>

@@ -3,5 +3,6 @@ export enum RoutePath {
   REGISTER = 'register',
   MOVIE_SINGLE = 'movie/:id',
   MOVIE_LIST = 'movie',
-  HOME = ''
+  HOME = '',
+  PROFILE = 'user/:id',
 }

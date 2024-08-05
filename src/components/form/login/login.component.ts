@@ -9,7 +9,7 @@ import {ButtonType} from "../../models/buttonType";
 import {FormButtonComponent} from "../form-button/form-button.component";
 import {Router} from "@angular/router";
 import {RoutePath} from "../../models/routePath";
-import {LoginApi} from "../../../api/login/loginApi";
+import {AuthApi} from "../../../api/auth-api";
 import {getErrResponse} from "../../../util/errUtils";
 import {NgIf} from "@angular/common";
 
@@ -22,13 +22,13 @@ import {NgIf} from "@angular/common";
     FormButtonComponent,
     NgIf
   ],
-  providers: [LoginApi],
+  providers: [AuthApi],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 
-  constructor(private readonly router: Router, private readonly loginApi: LoginApi) {
+  constructor(private readonly router: Router, private readonly authApi: AuthApi) {
   }
 
   hasError: boolean = false;
@@ -54,14 +54,16 @@ export class LoginComponent {
   }
 
   login = () => {
-    this.loginApi.login({
+    this.authApi.login({
       username: this.usernameField.value!,
       password: this.passwordField.value!
     }).subscribe({
       error: err => {
         this.hasError = true
-        this.errMsg = getErrResponse(err).message
+        this.errMsg = getErrResponse(err).message !== undefined ? getErrResponse(err)?.message! : ""
       }, next: response => {
+        localStorage.setItem("jwt", response.data)
+        localStorage.setItem("user", this.usernameField.value!)
         this.router.navigate([RoutePath.MOVIE_LIST]).then(r => {
           if (!r) {
             alert('Error')

@@ -13,5 +13,5 @@
   </div>
   <input type="text" class="search" placeholder="Search..." [ngModel]="search">
   <button class="notification-btn">🔔</button>
-  <button class="profile-btn" [routerLink]="'/login'" routerLinkActive="active">👤</button>
+  <button class="profile-btn" (click)="goProfile()">👤</button>
 </header>

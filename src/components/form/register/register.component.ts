@@ -12,13 +12,13 @@ import {Title} from "@angular/platform-browser";
 import {RoutePath} from "../../models/routePath";
 import {Router} from "@angular/router";
 import {getErrResponse} from "../../../util/errUtils";
-import {LoginApi} from "../../../api/login/loginApi";
+import {UserApi} from "../../../api/userApi";
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  providers: [LoginApi],
+  providers: [UserApi],
   imports: [
     FormComponent,
     FormInputFieldComponent,
@@ -34,7 +34,7 @@ export class RegisterComponent {
 
   private router: Router;
 
-  constructor(router: Router, private readonly loginApi: LoginApi) {
+  constructor(router: Router, private readonly usrApi: UserApi) {
     this.router = router
   }
 
@@ -77,13 +77,13 @@ export class RegisterComponent {
   protected readonly Title = Title;
 
   signUp = () => {
-    this.loginApi.register({
+    this.usrApi.register({
       username: this.usernameField.value!,
       password: this.passwordField.value!
     }).subscribe({
       error: err => {
         this.hasError = true
-        this.errMsg = getErrResponse(err).message
+        this.errMsg = getErrResponse(err).message !== undefined ? getErrResponse(err)?.message! : ""
       }, next: response => {
         this.router.navigate([RoutePath.MOVIE_LIST]).then(r => {
           if (!r) {

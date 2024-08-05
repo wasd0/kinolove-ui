@@ -17,6 +17,10 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate(_: ActivatedRouteSnapshot, __: RouterStateSnapshot): MaybeAsync<GuardResult> {
+    if (typeof window === `undefined`) {
+      return false
+    }
+
     const tok = localStorage.getItem("jwt") !== null ? localStorage.getItem("jwt")! : "";
     if (this.authService.isAuthenticated(tok)) {
       return true

@@ -1,4 +1,4 @@
-<div class="movie-card">
-  <img src="https://via.placeholder.com/150" alt="Фильм 3">
-  <h2 [title]="title">{{title}}</h2>
+<div class="movie-card" (click)="goToMovieCard()">
+  <img class="card-img" ngSrc="https://via.placeholder.com/150" [alt]="title" width="150" height="150" loading="lazy">
+  <h2 class="card-title" [title]="title">{{title}}</h2>
 </div>

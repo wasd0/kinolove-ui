@@ -12,15 +12,15 @@
   cursor: pointer;
 }
 
-.movie-card img {
+.card-img {
   width: 100%;
-  height: auto;
+  height: 70%;
   gap: 20px;
 }
 
-.movie-card h2 {
+.card-title {
   font-size: 1.2em;
-  margin: 10px;
+  margin: 5px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

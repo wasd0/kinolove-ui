@@ -1,0 +1,115 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.movie-container {
+  max-width: 1400px;
+  margin: auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.movie-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.movie-header img {
+  border-radius: 5px;
+  width: 240px;
+  height: 320px;
+  margin-right: 20px;
+  border: 2px solid #1877f2;
+}
+.movie-header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #1c1e21; /* Цвет текста, как в Facebook */
+}
+.movie-info {
+  margin-top: 10px;
+}
+.movie-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #1c1e21; /* Цвет текста, как в Facebook */
+}
+.movie-info .label {
+  font-weight: bold;
+  color: #1877f2; /* Цвет меток, как в Facebook */
+}
+.divider {
+  margin: 20px 0;
+  border-top: 1px solid #e4e6eb; /* Линия разделителя */
+}
+
+
+
+.comments-section {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.comment {
+  display: flex;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.comment-author {
+  margin-right: 10px;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.author-name {
+  font-weight: bold;
+  display: block;
+}
+
+.comment-content {
+  justify-content: center;
+  flex: 1;
+}
+
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+}
+
+.comment-form button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: scale 0.1s;
+}
+
+.comment-form button:hover {
+  opacity: 0.9;
+  scale: 1.05;
+}

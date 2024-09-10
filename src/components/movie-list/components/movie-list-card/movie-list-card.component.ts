@@ -14,6 +14,7 @@ import {NgOptimizedImage} from "@angular/common";
 export class MovieListCardComponent {
   @Input() title: string = "";
   @Input() id: number = 0;
+  @Input() imgUrl: string = "";
 
   constructor(private readonly router: Router) {
   }

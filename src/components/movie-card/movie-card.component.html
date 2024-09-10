@@ -1,1 +1,64 @@
-<p>movie-card works!</p>
+<div container>
+  <div class="movie-container">
+    <div class="movie-header">
+      <img [src]="getImageUrl()" alt="Movie image">
+      <div>
+        <h1>{{movie?.title}}</h1>
+        <h2>{{movie?.alterTitles}}</h2>
+        <div class="divider"></div>
+        <div *ngIf="movie != null && movie?.episodeCount != null">
+          Количество серий: {{movie?.episodeCount}}
+        </div>
+        <div *ngIf="movie != null && movie?.episodeDuration != null">
+          Длительность серии: {{movie?.episodeDuration}}
+        </div>
+      </div>
+    </div>
+    <div class="movie-info">
+      <div class="divider"></div>
+      <p>{{movie?.description}}</p>
+    </div>
+  </div>
+  <footer class="container">
+    <div class="comments-section">
+      <h2>Комментарии</h2>
+      <div class="comment">
+        <div class="comment-author">
+          <img ngSrc="https://via.placeholder.com/40" alt="Avatar" class="avatar" width="40" height="40"
+               priority>
+          <span class="author-name">Username</span>
+        </div>
+        <div class="comment-content">
+          <p class="comment-text">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+            praesentium voluptatum
+            deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non
+            provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum
+            fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta
+            nobis
+            est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis
+            voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis
+            debitis
+            aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non
+            recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus
+            maiores alias consequatur aut perferendis doloribus asperiores repellat!</p>
+        </div>
+      </div>
+      <div class="comment">
+        <div class="comment-author">
+          <img src="https://via.placeholder.com/40" alt="Avatar" class="avatar">
+          <span class="author-name">Aboba</span>
+        </div>
+        <div class="comment-content">
+          <p class="comment-text">It is a long established fact that a reader will be distracted by the
+            readable content of a page
+            when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
+            distribution of letters, as opposed to using 'Content here, content here',!</p>
+        </div>
+      </div>
+      <div class="comment-form">
+        <textarea placeholder="Write your comment..." rows="3"></textarea>
+        <button type="submit">Отправить</button>
+      </div>
+    </div>
+  </footer>
+</div>
